@@ -1,0 +1,19 @@
+{
+  "name": "timeline",
+  "version": "1.0.0",
+  "description": "front-end library, framework history timeline",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/deadintegral/front-timeline.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/deadintegral/front-timeline/issues"
+  },
+  "homepage": "https://gitlab.com/deadintegral/front-timeline#README"
+}
