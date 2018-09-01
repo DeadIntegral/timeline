@@ -32,7 +32,11 @@ circle {
 	font-size: 20px;
 	text-anchor: middle;
 }
+.date-svg {
+	position: fixed;
+}
 </style>
+<svg id="dateSvg" class="date-svg" width="3400"></svg>
 <svg id="mySvg" width="3400" height="2000">
 </svg>
 <script>
@@ -58,6 +62,7 @@ circle {
 // https://github.com/gulpjs/gulp/releases
 // https://github.com/webpack/webpack/releases
 </script>
-<script src="/js/index.js"></script>
+<script src="./js/data.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
