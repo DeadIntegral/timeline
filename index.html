@@ -5,40 +5,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<link href="./css/common.css" rel="stylesheet">
 </head>
 <body>
-<style>
-html, body {
-	padding: 0;
-	margin: 0;
-}
-circle {
-	stroke-width: 2px;
-	fill: white;
-}
-.pro-name {
-	font-size: 12px;
-}
-.version {
-	font-size: 13px;
-	text-anchor: middle;
-}
-.sub-version {
-	font-size: 9px;
-	text-anchor: middle;
-}
-
-#yearLabel text {
-	font-size: 20px;
-	text-anchor: middle;
-}
-.date-svg {
-	position: fixed;
-}
-</style>
-<svg id="dateSvg" class="date-svg" width="3400"></svg>
-<svg id="mySvg" width="3400" height="2000">
-</svg>
+<table>
+	<thead class="svg-header">
+		<tr>
+			<td>
+				<svg id="dateSvg" class="date-svg" width="3400" height="20"></svg>
+			</td>
+		</tr>
+	</thead>
+	<tbody class="svg-body">
+		<tr>
+			<td>
+				<svg id="mySvg" width="3400" height="2000"></svg>
+			</td>
+		</tr>
+	</tbody>
+</table>
 <script>
 // https://upload.wikimedia.org/wikipedia/commons/e/e8/Webdevelopmenttimeline.png
 // jquery, backbone, knockout, ember, underscore, react, vue, angular1, angular2

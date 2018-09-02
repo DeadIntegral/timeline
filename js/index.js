@@ -31,16 +31,20 @@
 	${ [...Array(init.lastYear - init.firstYear + 1).keys()].map((v,i) => `<text x="${i*init.between}">${init.firstYear+i}</text>` ).join('') }
 	</g>`;
 
+	const dateDraw = 
+	yearGroup+
+	`<g id="yearList">
+		<use x="${ init.between }" y="20" xlink:href="#yearLabel" />
+	</g>
+	`;
+	document.querySelector('#dateSvg').innerHTML = dateDraw;
 	const draw = `
 	<pattern id="bgLine" patternUnits="userSpaceOnUse" width="${ init.between }" height="100%">
 		<line x1="0" x2="0" y2="100%" stroke="#CCC" />
 	</pattern>`+
-	yearGroup+
+	
 	str+
 	`<g id="content">
-		<use x="${ init.between }" y="20" xlink:href="#yearLabel" />
-		<use x="${ init.between }" y="100%" transform="translate(0, -20)" xlink:href="#yearLabel" />
-
 		<use x="0" y="100" xlink:href="#JQuery" />
 		<use x="0" y="140" xlink:href="#JQuery2.x" />
 		<use x="0" y="180" xlink:href="#JQuery3.x" />
