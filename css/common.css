@@ -1,0 +1,32 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+circle {
+	stroke-width: 2px;
+	fill: white;
+}
+.pro-name {
+	font-size: 12px;
+}
+.version {
+	font-size: 13px;
+	text-anchor: middle;
+}
+.sub-version {
+	font-size: 9px;
+	text-anchor: middle;
+}
+
+#yearLabel text {
+	font-size: 20px;
+	text-anchor: middle;
+}
+.svg-header {
+	display: block;
+}
+.svg-body {
+	display: block;
+	height: calc(100vh - 55px);
+	overflow-y: auto;
+}
