@@ -6,6 +6,7 @@ const init = {
 const data = [
 	{
 		name: 'JQuery',
+		type: 'domControl',
 		xRange: [9999],
 		refer: 'https://en.wikipedia.org/wiki/JQuery',
 		color: '#ff0000',
@@ -27,6 +28,7 @@ const data = [
 	},
 	{
 		name: 'JQuery2.x',
+		type: 'domControl',
 		xRange: [9999],
 		yRange: [-40, 0],
 		refer: 'https://en.wikipedia.org/wiki/JQuery',
@@ -39,6 +41,7 @@ const data = [
 	},
 	{
 		name: 'JQuery3.x',
+		type: 'domControl',
 		xRange: [2645],
 		yRange: [-31, 0],
 		refer: 'https://en.wikipedia.org/wiki/JQuery',
@@ -128,6 +131,7 @@ const data = [
 	{
 		// 버전별 분기 필요
 		name: 'React',
+		type: 'VirtualDOM',
 		xRange: [9999, 9999],
 		refer: 'https://reactjs.org/',
 		color: '#61dafb',
@@ -146,6 +150,7 @@ const data = [
 	},
 	{
 		name: 'Vue',
+		type: 'VirtualDOM',
 		xRange: [9999],
 		refer: 'https://vuejs.org/',
 		color: '#61dafb',
@@ -165,6 +170,7 @@ const data = [
 	},
 	{
 		name: 'Vue1',
+		type: 'VirtualDOM',
 		xRange: [9999],
 		refer: 'https://vuejs.org/',
 		color: '#61dafb',
@@ -182,6 +188,7 @@ const data = [
 	},
 	{
 		name: 'Vue2',
+		type: 'VirtualDOM',
 		xRange: [9999, 9999],
 		refer: 'https://vuejs.org/',
 		color: '#61dafb',
@@ -434,10 +441,10 @@ const data = [
 		]
 	},
 	{
-		name: 'Webpack',
+		name: 'Webpack1',
 		xRange: [9999],
 		refer: 'https://webpack.js.org/',
-		color: '#2B3A42',
+		color: '#8DD6F9',
 		list: [
 			{ version:'0.1', date:'2012-03-11' },
 			{ version:'0.8', date:'2012-11-14' },
@@ -446,6 +453,80 @@ const data = [
 			{ version:'1', date:'2014-02-19', type:'main' },
 			{ version:'1.3.4', date:'2014-08-25' },
 			{ version:'1.5', date:'2015-01-17' },
+			{ version:'1.6', date:'2015-02-23' },
+			{ version:'1.7', date:'2015-03-03' },
+			{ version:'1.8', date:'2015-04-07' },
+			{ version:'1.9', date:'2015-05-10' },
+			{ version:'1.10', date:'2015-06-27' },
+			{ version:'1.11', date:'2015-08-06' },
+			{ version:'1.12', date:'2015-08-25' },
+			{ version:'1.13', date:'2016-04-15' },
+			{ version:'1.14', date:'2016-12-07' },
+			{ version:'1.15', date:'2017-04-13' }
+		]
+	},
+	{
+		name: 'Webpack2',
+		xRange: [9999],
+		refer: 'https://webpack.js.org/',
+		color: '#8DD6F9',
+		list: [
+			{ version: '2.0b', date:'2015-11-01'},
+			{ version: '2.1b', date:'2016-02-22'},
+			{ version: '2.2', date:'2017-01-17'},
+			{ version: '2.3', date:'2017-03-21'},
+			{ version: '2.4.0', date:'2017-04-14'},
+			{ version: '2.5.0', date:'2017-05-04'},
+			{ version: '2.6.0', date:'2017-05-22'},
+			{ version: '2.7.0', date:'2017-07-12'}
+		]
+	},
+	{
+		name: 'Webpack3',
+		xRange: [9999],
+		refer: 'https://webpack.js.org/',
+		color: '#8DD6F9',
+		list: [
+			{ version: '3.0.0', date:'2017-06-19'},
+			{ version: '3.1.0', date:'2017-07-06'},
+			{ version: '3.2.0', date:'2017-07-11'},
+			{ version: '3.3.0', date:'2017-07-15'},
+			{ version: '3.4.0', date:'2017-07-25'},
+			{ version: '3.5.0', date:'2017-08-08'},
+			{ version: '3.6.0', date:'2017-09-15'},
+			{ version: '3.7.0', date:'2017-10-11'},
+			{ version: '3.8.0', date:'2017-10-17'},
+			{ version: '3.9.0', date:'2017-11-30'},
+			{ version: '3.10.0', date:'2017-12-04'},
+			{ version: '3.11.0', date:'2018-02-10'},
+			{ version: '3.12.0', date:'2018-05-11'}
+		]
+	},
+	{
+		name: 'Webpack4',
+		xRange: [9999],
+		refer: 'https://webpack.js.org/',
+		color: '#8DD6F9',
+		list: [
+			{ version: '4.0.0', date:'2018-02-25'},
+			{ version: '4.1.0', date:'2018-03-04'},
+			{ version: '4.2.0', date:'2018-03-21'},
+			{ version: '4.3.0', date:'2018-03-27'},
+			{ version: '4.4.0', date:'2018-03-29'},
+			{ version: '4.5.0', date:'2018-04-04'},
+			{ version: '4.6.0', date:'2018-04-17'},
+			{ version: '4.7.0', date:'2018-05-04'},
+			{ version: '4.8.0', date:'2018-05-07'},
+			{ version: '4.9.0', date:'2018-05-25'},
+			{ version: '4.10.0', date:'2018-05-28'},
+			{ version: '4.11.0', date:'2018-06-05'},
+			{ version: '4.12.0', date:'2018-06-08'},
+			{ version: '4.13.0', date:'2018-06-28'},
+			{ version: '4.14.0', date:'2018-06-29'},
+			{ version: '4.15.0', date:'2018-07-04'},
+			{ version: '4.16.0', date:'2018-07-11'},
+			{ version: '4.17.0', date:'2018-08-21'},
+			{ version: '4.17.2', date:'2018-09-03'}
 		]
 	},
 	{
