@@ -96,12 +96,15 @@
 
 		<use x="0" y="1100" xlink:href="#Grunt" />
 		<use x="0" y="1150" xlink:href="#Gulp" />
-		<use x="0" y="1200" xlink:href="#Webpack" />
+		<use x="0" y="1200" xlink:href="#Webpack1" />
+		<use x="0" y="1240" xlink:href="#Webpack2" />
+		<use x="0" y="1200" xlink:href="#Webpack3" />
+		<use x="0" y="1240" xlink:href="#Webpack4" />
 
-		<use x="0" y="1300" xlink:href="#Mocha" />
-		<use x="0" y="1340" xlink:href="#Jasmine" />
+		<use x="0" y="1350" xlink:href="#Mocha" />
+		<use x="0" y="1400" xlink:href="#Jasmine" />
 
-		<use x="0" y="1400" xlink:href="#Babel" />
+		<use x="0" y="1450" xlink:href="#Babel" />
 		<use x="0" y="1500" xlink:href="#Dojo" />
 	</g>
 	<rect x="0" y="0" height="100%" width="100%" fill="#ffffff"/>
