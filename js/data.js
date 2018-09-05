@@ -28,7 +28,6 @@ const data = [
 	{
 		name: 'JQuery2.x',
 		xRange: [9999],
-		yRange: [-40, 0],
 		refer: 'https://en.wikipedia.org/wiki/JQuery',
 		color: '#ff0000',
 		list: [
@@ -39,8 +38,7 @@ const data = [
 	},
 	{
 		name: 'JQuery3.x',
-		xRange: [2645],
-		yRange: [-31, 0],
+		xRange: [9999],
 		refer: 'https://en.wikipedia.org/wiki/JQuery',
 		color: '#ff0000',
 		list: [

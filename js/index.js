@@ -3,19 +3,22 @@
 		return ~~((new Date(date1+'') - new Date(date2+'')) / (86400 * 1000 * 365) * init.between);
 	}
 
-	const str = data.map(prog => {
+	const groupData = data.map(prog => {
+
+	});
+
+	const dataList = data.map(prog => {
 		let lineX1 = lineCalculator(prog.list[0].date, init.firstYear);
 		lineX1 = lineX1 <= prog.xRange[0] ? lineX1 : prog.xRange[0];
 		let lineX2 = lineCalculator(prog.list[prog.list.length - 1].date, init.firstYear);
 		lineX2 = prog.xRange[1] ? prog.xRange[1] : lineX2;
 		const lineColor = prog.color;
-		const secondLine = prog.yRange ? `<line stroke="${ lineColor }" x1="${ lineX1 }" x2="${ lineX1 }" y1="${ prog.yRange[0] }" y2="${ prog.yRange[1] }" />` : '';
+
 		return `<g id="${ prog.name }">
 			<a xlink:href="${ prog.refer }">
 				<text x="${ lineX1-5 }" y="-15" class="pro-name">${ prog.name }</text>
 			</a>
-			<line stroke="${ lineColor }" x1="${ lineX1 }" x2="${ lineX2 }" y="50" />
-			${ secondLine }`
+			<line stroke="${ lineColor }" x1="${ lineX1 }" x2="${ lineX2 }" y="50" />`
 			+ prog.list.map(item => {
 				const cx = lineCalculator(item.date, init.firstYear);
 				const vType = item.type ? 'version' : 'sub-version';
@@ -28,22 +31,21 @@
 	}).join('');
 
 	const yearGroup = `<g id="yearLabel">
-	${ [...Array(init.lastYear - init.firstYear + 1).keys()].map((v,i) => `<text x="${i*init.between}">${init.firstYear+i}</text>` ).join('') }
+		${ [...Array(init.lastYear - init.firstYear + 1).keys()].map((v,i) => `<text x="${i*init.between}">${init.firstYear+i}</text>` ).join('') }
 	</g>`;
 
 	const dateDraw = 
 	yearGroup+
 	`<g id="yearList">
 		<use x="${ init.between }" y="20" xlink:href="#yearLabel" />
-	</g>
-	`;
+	</g>`;
 	document.querySelector('#dateSvg').innerHTML = dateDraw;
+
 	const draw = `
 	<pattern id="bgLine" patternUnits="userSpaceOnUse" width="${ init.between }" height="100%">
 		<line x1="0" x2="0" y2="100%" stroke="#CCC" />
 	</pattern>`+
-	
-	str+
+	dataList +
 	`<g id="content">
 		<use x="0" y="100" xlink:href="#JQuery" />
 		<use x="0" y="140" xlink:href="#JQuery2.x" />
