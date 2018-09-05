@@ -1,38 +1,60 @@
 (function(){
+	const ParseQuery = (qstr) => {
+		const query = {};
+		const a = (qstr[0] === '?' ? qstr.substr(1) : qstr).split('&');
+		for (let i = 0; i < a.length; i++) {
+			const b = a[i].split('=');
+			query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
+		}
+		return query;
+	}
+	const setWidth = (selector) => {
+		const add = 60 + Math.floor(init.between / 2);
+		const width = init.between * (init.lastYear - init.firstYear + 1) + add;
+		document.querySelector(selector).setAttribute('width', width);
+	}
 	const lineCalculator = (date1, date2) => {
 		return ~~((new Date(date1+'') - new Date(date2+'')) / (86400 * 1000 * 365) * init.between);
 	}
+	const drawItem = (data) => {
+		return data.map(prog => {
+			let lineX1 = lineCalculator(prog.list[0].date, init.firstYear);
+			lineX1 = lineX1 <= prog.xRange[0] ? lineX1 : prog.xRange[0];
+			let lineX2 = lineCalculator(prog.list[prog.list.length - 1].date, init.firstYear);
+			lineX2 = prog.xRange[1] ? prog.xRange[1] : lineX2;
+			const lineColor = prog.color;
+			return `<g id="${ prog.name }">
+				<a xlink:href="${ prog.refer }">
+					<text x="${ lineX1-5 }" y="-15" class="pro-name">${ prog.name }</text>
+				</a>
+				<line stroke="${ lineColor }" x1="${ lineX1 }" x2="${ lineX2 }" y="50" />`
+				+ prog.list.map(item => {
+					const cx = lineCalculator(item.date, init.firstYear);
+					const vType = item.type ? 'version' : 'sub-version';
+					return `
+						<circle stroke="${ lineColor }" cx="${ cx }" r="10" />
+						<text x="${ cx }" y="3" r="10" class="${ vType }">${ item.version }</text>
+					`;
+				})
+				+`</g>`;
+		}).join('')
+	}
+	const drawYear = (set) => {
+		return `<g id="yearLabel">
+			${ [...Array(set.lastYear - set.firstYear + 1).keys()].map((v,i) => `<text x="${i*set.between}">${set.firstYear+i}</text>` ).join('') }
+		</g>`
+	}
 
-	const groupData = data.map(prog => {
+	// init setting
+	let query = ParseQuery(location.search);
+	init.between = query.between || init.between;
+	setWidth('#dateSvg');
+	setWidth('#mySvg');
 
-	});
+	const groupData = data.map(prog => {});
 
-	const dataList = data.map(prog => {
-		let lineX1 = lineCalculator(prog.list[0].date, init.firstYear);
-		lineX1 = lineX1 <= prog.xRange[0] ? lineX1 : prog.xRange[0];
-		let lineX2 = lineCalculator(prog.list[prog.list.length - 1].date, init.firstYear);
-		lineX2 = prog.xRange[1] ? prog.xRange[1] : lineX2;
-		const lineColor = prog.color;
-
-		return `<g id="${ prog.name }">
-			<a xlink:href="${ prog.refer }">
-				<text x="${ lineX1-5 }" y="-15" class="pro-name">${ prog.name }</text>
-			</a>
-			<line stroke="${ lineColor }" x1="${ lineX1 }" x2="${ lineX2 }" y="50" />`
-			+ prog.list.map(item => {
-				const cx = lineCalculator(item.date, init.firstYear);
-				const vType = item.type ? 'version' : 'sub-version';
-				return `
-					<circle stroke="${ lineColor }" cx="${ cx }" r="10" />
-					<text x="${ cx }" y="3" r="10" class="${ vType }">${ item.version }</text>
-				`;
-			})
-			+`</g>`;
-	}).join('');
-
-	const yearGroup = `<g id="yearLabel">
-		${ [...Array(init.lastYear - init.firstYear + 1).keys()].map((v,i) => `<text x="${i*init.between}">${init.firstYear+i}</text>` ).join('') }
-	</g>`;
+	const dataList = drawItem(data);
+	const yearGroup = drawYear(init);
 
 	const dateDraw = 
 	yearGroup+
