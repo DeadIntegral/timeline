@@ -100,6 +100,7 @@
 		<use x="0" y="1240" xlink:href="#Webpack2" />
 		<use x="0" y="1200" xlink:href="#Webpack3" />
 		<use x="0" y="1240" xlink:href="#Webpack4" />
+		<use x="0" y="1290" xlink:href="#Rollup" />
 
 		<use x="0" y="1350" xlink:href="#Mocha" />
 		<use x="0" y="1400" xlink:href="#Jasmine" />
