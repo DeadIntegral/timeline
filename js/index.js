@@ -23,7 +23,7 @@
 			let lineX2 = lineCalculator(prog.list[prog.list.length - 1].date, init.firstYear);
 			lineX2 = prog.xRange[1] ? prog.xRange[1] : lineX2;
 			const lineColor = prog.color;
-			return `<g id="${ prog.name }">
+			const result = `<g id="${ prog.name }">
 				<a xlink:href="${ prog.refer }">
 					<text x="${ lineX1-5 }" y="-15" class="pro-name">${ prog.name }</text>
 				</a>
@@ -31,12 +31,17 @@
 				+ prog.list.map(item => {
 					const cx = lineCalculator(item.date, init.firstYear);
 					const vType = item.type ? 'version' : 'sub-version';
+					if(prog.graph){
+						const height = (item.down / 9388689)*-30 || 0;
+						prog.graph.push([cx, height]);
+					}
 					return `
 						<circle stroke="${ lineColor }" cx="${ cx }" r="10" />
 						<text x="${ cx }" y="3" r="10" class="${ vType }">${ item.version }</text>
 					`;
-				})
-				+`</g>`;
+				});
+				const tmp = prog.graph ? `<polyline fill="none" stroke="${ lineColor }" stroke-width="2" points="${ prog.graph.join(' ') }" style="stroke-opacity:0.5"/>` : '';
+				return result + tmp + `</g>`;
 		}).join('')
 	}
 	const drawYear = (set) => {

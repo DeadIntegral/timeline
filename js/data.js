@@ -129,6 +129,7 @@ const data = [
 		xRange: [9999, 9999],
 		refer: 'https://reactjs.org/',
 		color: '#61dafb',
+		type: 'VDOM',
 		list: [
 			{ version:'0.3', date:'2013-05-29' },
 			{ version:'0.8', date:'2013-12-19' },
@@ -136,11 +137,14 @@ const data = [
 			{ version:'0.10', date:'2014-03-21' },
 			{ version:'0.11', date:'2014-07-17' },
 			{ version:'0.12', date:'2014-10-28' },
-			{ version:'0.13', date:'2015-03-10' },
-			{ version:'0.14', date:'2015-10-07' },
-			{ version:'15', date:'2016-04-08' },
-			{ version:'16', date:'2017-09-26' },
-		]
+			{ version:'0.13', date:'2015-03-10', down:40144 },
+			{ version:'0.14', date:'2015-10-07', down:517258 },
+			{ version:'15', date:'2016-04-08', down:1625728 },
+			{ version:'16', date:'2017-09-26', down:5581184 },
+			{ version:'16.1', date:'2017-11-09', down:7366635 },
+			{ version:'16.4', date:'2018-05-24', down:9388689 },
+		],
+		graph:[]
 	},
 	{
 		name: 'Vue',
