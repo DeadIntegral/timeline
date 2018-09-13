@@ -84,6 +84,7 @@
 		<use x="0" y="380" xlink:href="#underscore" />
 
 		<use x="0" y="500" xlink:href="#React" />
+		<use x="0" y="550" xlink:href="#Preact" />
 		<use x="0" y="600" xlink:href="#Vue" />
 		<use x="0" y="640" xlink:href="#Vue1" />
 		<use x="0" y="680" xlink:href="#Vue2" />
